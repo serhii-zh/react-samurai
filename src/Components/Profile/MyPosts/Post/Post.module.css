@@ -1,0 +1,13 @@
+.item {
+    color: darkorange;
+    padding: 5px;
+    border: 1px dotted darkgray;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.item .avatar {
+    width: 30px;
+    margin: 5px;
+    border-radius: 50px;
+}

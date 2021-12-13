@@ -1,0 +1,24 @@
+.header {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 100px 1fr;
+    grid-template-areas: 'logo title';
+    /* align-content: center; */
+
+    grid-area: h;
+    background-color: lightgreen;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.header img {
+    grid-area: logo;
+    width: 50px;
+    margin: auto;
+}
+
+.header h2 {
+    grid-area: title;
+    margin: auto 0;
+    color: rgb(44, 72, 82);
+}

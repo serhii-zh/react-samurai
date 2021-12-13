@@ -1,0 +1,51 @@
+.nav {
+    grid-area: n;
+    background-color: rgb(44, 72, 82);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.item {
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    margin-bottom: 5px; 
+    padding-left: 10px;
+}
+
+.item:hover {
+    background-color: rgb(28, 46, 53);
+}
+
+.item a {
+    text-decoration: none;
+    color: lightgray;
+    font-size: 30px;
+}
+
+.item .active {
+    color: darkorange;
+}
+
+.friends {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 200px;
+    border: 1px dashed lightgreen;
+    border-radius: 10px;
+    color: darkorange;
+}
+
+.friends div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.friends div .avatar {
+    margin: 0 auto;
+}
+
+.friends img {
+    width: 30px;
+    border-radius: 50px;
+}

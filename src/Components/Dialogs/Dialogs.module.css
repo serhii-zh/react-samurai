@@ -1,0 +1,31 @@
+.dialogsPage {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    padding: 5px;
+}
+
+.dialog {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.dialog:hover {
+    background-color: rgba(145, 238, 145, 0.1);
+}
+
+.dialog .a {
+    color:lightgrey;
+    text-decoration: none;
+}
+
+.dialog .active {
+    color: lightgreen;
+    border-radius: 10px;
+    margin-left: 10px;
+    text-decoration: none;
+
+}
+
+.message {
+    color: darkorange;
+}
