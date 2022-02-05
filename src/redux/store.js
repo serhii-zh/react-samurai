@@ -1,27 +1,30 @@
+import messagesReducer from "./messagesReducer";
+import profileReducer from "./profileReducer";
+
 let store = {
-  state: {
+  _state: {
     messagesPage: {
       users: [
         {
           name: "Lindsay",
-          id: 1,
+          id: "1",
           avatar:
             "https://previews.123rf.com/images/chrisroll/chrisroll1008/chrisroll100800012/7488111-grass-letter-l.jpg",
         },
         {
           name: "Nastia",
-          id: 2,
+          id: "2",
           avatar:
             "https://previews.123rf.com/images/chrisroll/chrisroll1008/chrisroll100800014/7488152-grass-letter-n.jpg",
         },
         {
           name: "Yulia",
-          id: 3,
+          id: "3",
           avatar:
             "https://previews.123rf.com/images/chrisroll/chrisroll1008/chrisroll100800025/7488112-grass-letter-y.jpg",
         },
-        { name: "Maryana", id: 4, avatar: "" },
-        { name: "Vova", id: 5, avatar: "" },
+        { name: "Maryana", id: "4", avatar: "" },
+        { name: "Vova", id: "5", avatar: "" },
       ],
       messages: [
         { message: "Hi!" },
@@ -29,19 +32,6 @@ let store = {
         { message: "Are you there?" },
       ],
       newMessageText: "",
-      addMessage() {
-        const newMessage = {
-          message: store.state.messagesPage.newMessageText,
-        };
-        debugger;
-        store.state.messagesPage.messages.push(newMessage);
-        store.state.messagesPage.newMessageText = "";
-        store.renderEntireTree(store);
-      },
-      updateMessageText(newText) {
-        store.state.messagesPage.newMessageText = newText;
-        store.renderEntireTree(store);
-      },
     },
     profilePage: {
       posts: [
@@ -50,28 +40,21 @@ let store = {
         { message: "Hoverla pt. 3", likes: 10 },
       ],
       newPostText: "",
-      addPost() {
-        const newPost = {
-          message: this.newPostText,
-          likes: 0,
-        };
-
-        this.posts.push(newPost);
-        store.state.profilePage.newPostText = "";
-        store.renderEntireTree(store);
-      },
-      updatePostText(newText) {
-        store.state.profilePage.newPostText = newText;
-        store.renderEntireTree(store);
-      },
     },
   },
-  renderEntireTree() {
+  _callSubscriber() {
     console.log("");
   },
+  getState() {
+    return this._state;
+  },
   subscribe(observer) {
-    this.renderEntireTree = observer;
+    this._callSubscriber = observer;
+  },
+  dispatch(action) {
+    profileReducer(this._state.profilePage, action);
+    messagesReducer(this._state.messagesPage, action);
+    this._callSubscriber(this._state);
   },
 };
-
 export default store;

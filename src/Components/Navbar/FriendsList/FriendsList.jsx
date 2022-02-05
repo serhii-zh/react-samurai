@@ -2,9 +2,9 @@ import styles from "./../Navbar.module.css";
 
 const FriendsList = (props) => {
   const friendsList = props.users.slice(0, 3).map((e) => (
-    <div>
+    <div key={e.id}>
       <div className={styles.avatar}>
-        <img src={e.avatar} />
+        <img src={e.avatar} alt='avatar' />
       </div>
       {e.name}
     </div>

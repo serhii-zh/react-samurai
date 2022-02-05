@@ -3,3 +3,12 @@
     border-radius: 5px;
     background: linear-gradient(0deg, rgba(44,72,82,1) 0%, rgba(144,238,144,1) 100%);
 }
+
+.avatar img {
+    width: 150px;
+}
+
+.profile {
+    display: flex;
+    flex-direction: row;
+}

@@ -1,45 +1,18 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
-import App from "./App";
-import "./index.css";
-// import state, {
-//   addMessage,
-//   addPost,
-//   subscribe,
-//   updateMessageText,
-//   updatePostText,
-// } from "./redux/state";
-import store from "./redux/store";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
+import App from './App';
+import './index.css';
+import store from './redux/redux-store';
 
-export const renderEntireTree = (store
-  // state
-  ) => {
-    // debugger;
-  ReactDOM.render(
-    <React.StrictMode>
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}>
       <Router>
-        <App
-        state = {store.state}
-        addPost = {store.state.profilePage.addPost}
-        updatePostText = {store.state.profilePage.updatePostText}
-        addMessage = {store.state.messagesPage.addMessage}
-        updateMessageText = {store.state.messagesPage.updateMessageText}
-
-          // state={state}
-          // addPost={addPost}
-          // addMessage={addMessage}
-          // updatePostText={updatePostText}
-          // updateMessageText={updateMessageText}
-        />
+        <App />
       </Router>
-    </React.StrictMode>,
-    document.getElementById("root")
-  );
-};
-
-renderEntireTree(store);
-// renderEntireTree(state);
-
-store.subscribe(renderEntireTree);
-// subscribe(renderEntireTree);
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);

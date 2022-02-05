@@ -4,18 +4,18 @@ import Post from "./Post/Post";
 
 const MyPosts = (props) => {
   const myPostsElements = props.posts.map((p) => (
-    <Post message={p.message} likes={p.likes} />
+    <Post key={p.id} message={p.message} likes={p.likes} />
   ));
 
   const textField = React.createRef();
 
   const addNewPost = () => {
-    props.addPost();
+    props.addNewPost();
   };
 
   const onTextChange = () => {
     let postText = textField.current.value;
-    props.updatePostText(postText);
+    props.onTextChange(postText);
   };
 
   return (

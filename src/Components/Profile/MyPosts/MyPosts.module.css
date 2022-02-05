@@ -3,5 +3,8 @@
 }
 
 .myPosts .posts {
+    display: flex;
+    flex-direction: column-reverse;
     margin: 5px;
+    font-size: 20px;
 }

@@ -4,12 +4,12 @@ import styles from "./Dialogs.module.css";
 import Message from "./Message/Message";
 
 const Dialogs = (props) => {
-  const usersElements = props.messagesPage.users.map((u) => (
-    <Dialog name={u.name} id={u.id} />
+  const usersElements = props.users.map((u) => (
+    <Dialog name={u.name} id={u.id} key={u.id} />
   ));
 
-  const mesaagesElements = props.messagesPage.messages.map((m) => (
-    <Message message={m.message} />
+  const mesaagesElements = props.messages.map((m) => (
+    <Message key={m.id} message={m.message} />
   ));
 
   const textField = React.createRef();
@@ -20,7 +20,7 @@ const Dialogs = (props) => {
 
   const onTextChange = () => {
     const messageText = textField.current.value;
-    props.updateMessageText(messageText);
+    props.onTextChange(messageText);
   };
 
   return (
@@ -32,7 +32,7 @@ const Dialogs = (props) => {
           <textarea
             ref={textField}
             onChange={onTextChange}
-            value={props.messagesPage.newMessageText}
+            value={props.newMessageText}
           />
           <div>
             <button onClick={addMessage}>Add Message</button>

@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import FriendsList from "./FriendsList/FriendsList";
+import FriendsListContainer from "./FriendsList/FriendsListContainer";
 import styles from "./Navbar.module.css";
 
 const Navbar = (props) => {
@@ -23,20 +23,13 @@ const Navbar = (props) => {
       </div>
       <div className={styles.item}>
         <NavLink
-          to="news"
+          to="users"
           className={(navData) => (navData.isActive ? styles.active : styles.a)}
         >
-          News
+          Users
         </NavLink>
       </div>
-      <div className={styles.item}>
-        <a>Music</a>
-      </div>
-      <div className={styles.item}>
-        <a>Settings</a>
-      </div>
-
-      <FriendsList users={props.state.users} />
+      <FriendsListContainer />
     </nav>
   );
 };
